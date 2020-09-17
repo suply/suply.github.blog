@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-16T14:28:47.146Z</updated>
+  <updated>2020-09-17T01:04:30.345Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
+    <title>Vue实例生命周期详解</title>
     <link href="http://example.com/2020/09/16/hello-world/"/>
     <id>http://example.com/2020/09/16/hello-world/</id>
     <published>2020-09-16T14:28:47.146Z</published>
-    <updated>2020-09-16T14:28:47.146Z</updated>
+    <updated>2020-09-17T01:04:30.345Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p><strong>vue实例的创建，运行，销毁</strong></p><ul><li>实例创建<ul><li>var vm = new Vue({})<br>—&gt;初始化后执行beforeCreate()先于data{}和methods{}。<br>—&gt;如果想先执行这俩内的方法或者数据可使用created（）中操作<br>—&gt;执行Vue模板，渲染于内存中未渲染于页面，执行beforeMount()渲染到内存<br>—&gt;内存中的模板渲染到页面，mounted()渲染到页面，实例创建完成。</li></ul></li><li>实例运行<ul><li>当数据data改变，beforeUpdata()页面不变，数据已经更新<br>—&gt;在内存中渲染新数据DOM树，再渲染到视图层页面，updated()执行时页面已经更新。</li></ul></li><li>实例销毁<ul><li>执行beforeDestroy()进入销毁阶段，实例中的data{}和methods{}仍然可用。<br>—&gt;Destroy()运行时，组件已经完全销毁，内部所有都不可用。</li></ul></li></ul><p><strong>生命周期函数（钩子函数）</strong></p><ul><li><p>beforeCreate()初始化</p></li><li><p>created（）先执行这俩内的方法或者数据</p></li><li><p>beforeMount()渲染到内存</p></li><li><p>mounted()渲染到页面</p></li><li><p>beforeUpdata()页面不变，数据已经更新</p></li><li><p>updated()执行时页面已经更新</p></li><li><p>beforeDestroy()进入销毁阶段 Destroy()运行时组件已经完全销毁</p></li></ul><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;&lt;strong&gt;vue实例的创建，运行，销毁&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实例创建&lt;ul&gt;
+&lt;li&gt;var vm = new Vue({})&lt;br&gt;—&amp;gt;初始化后执行beforeCreate()先于data{}和methods{}。&lt;br&gt;—&amp;gt;如果</summary>
       
     
     
