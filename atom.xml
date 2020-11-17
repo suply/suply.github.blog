@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小杨的开发空间</title>
+  <title>老头的博客</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="http://suplyang.xyz/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="http://suplyang.xyz/"/>
   <updated>2020-11-17T02:39:46.555Z</updated>
-  <id>http://example.com/</id>
+  <id>http://suplyang.xyz/</id>
   
   <author>
-    <name>Suply</name>
+    <name>Geezer</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Javascript基础知识巩固</title>
-    <link href="http://example.com/2020/11/09/jsbase/"/>
-    <id>http://example.com/2020/11/09/jsbase/</id>
+    <link href="http://suplyang.xyz/2020/11/09/jsbase/"/>
+    <id>http://suplyang.xyz/2020/11/09/jsbase/</id>
     <published>2020-11-09T02:13:12.984Z</published>
     <updated>2020-11-17T02:39:46.555Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>HTML详解(面试篇)</title>
-    <link href="http://example.com/2020/10/31/html/"/>
-    <id>http://example.com/2020/10/31/html/</id>
+    <link href="http://suplyang.xyz/2020/10/31/html/"/>
+    <id>http://suplyang.xyz/2020/10/31/html/</id>
     <published>2020-10-31T09:33:00.076Z</published>
     <updated>2020-11-01T07:11:28.318Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>2020 JS面试合集 (02)</title>
-    <link href="http://example.com/2020/10/01/js02/"/>
-    <id>http://example.com/2020/10/01/js02/</id>
+    <link href="http://suplyang.xyz/2020/10/01/js02/"/>
+    <id>http://suplyang.xyz/2020/10/01/js02/</id>
     <published>2020-10-01T03:02:10.186Z</published>
     <updated>2020-10-01T03:04:13.492Z</updated>
     
@@ -80,8 +80,8 @@
   
   <entry>
     <title>2020 JS面试合集 (01)</title>
-    <link href="http://example.com/2020/10/01/js/"/>
-    <id>http://example.com/2020/10/01/js/</id>
+    <link href="http://suplyang.xyz/2020/10/01/js/"/>
+    <id>http://suplyang.xyz/2020/10/01/js/</id>
     <published>2020-10-01T02:05:20.284Z</published>
     <updated>2020-10-01T03:04:18.478Z</updated>
     
@@ -101,8 +101,8 @@
   
   <entry>
     <title>Chrome插件,被严重低估的浏览器功能！！</title>
-    <link href="http://example.com/2020/09/17/chrome/"/>
-    <id>http://example.com/2020/09/17/chrome/</id>
+    <link href="http://suplyang.xyz/2020/09/17/chrome/"/>
+    <id>http://suplyang.xyz/2020/09/17/chrome/</id>
     <published>2020-09-17T08:52:07.483Z</published>
     <updated>2020-09-18T00:26:49.639Z</updated>
     
@@ -121,8 +121,8 @@
   
   <entry>
     <title>Vue实例生命周期详解</title>
-    <link href="http://example.com/2020/09/16/vue/"/>
-    <id>http://example.com/2020/09/16/vue/</id>
+    <link href="http://suplyang.xyz/2020/09/16/vue/"/>
+    <id>http://suplyang.xyz/2020/09/16/vue/</id>
     <published>2020-09-16T14:28:47.146Z</published>
     <updated>2020-09-17T01:07:17.254Z</updated>
     
