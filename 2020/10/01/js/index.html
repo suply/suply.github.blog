@@ -1,126 +1,152 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2020 JS面试合集 (01) | 老头的博客</title><meta name="description" content="JavaScript基础 1.写出代码执行结果，并解释为什么12console.log(1 &lt; 2 &lt; 3);console.log(3 &gt; 2 &gt; 1);  &#x2F;&#x2F; 答案与解析 true false 对于运算符&gt;、&lt;,一般的计算从左向右 第一个题：1 &lt; 2 等于 true, 然后true &lt; 3，true &#x3D;&#x3D; 1 ，因此结果是true 第二个题："><meta name="author" content="Geezer"><meta name="copyright" content="Geezer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://suplyang.xyz/2020/10/01/js/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="2020 JS面试合集 (01)"><meta property="og:url" content="http://suplyang.xyz/2020/10/01/js/"><meta property="og:site_name" content="老头的博客"><meta property="og:description" content="JavaScript基础 1.写出代码执行结果，并解释为什么12console.log(1 &lt; 2 &lt; 3);console.log(3 &gt; 2 &gt; 1);  &#x2F;&#x2F; 答案与解析 true false 对于运算符&gt;、&lt;,一般的计算从左向右 第一个题：1 &lt; 2 等于 true, 然后true &lt; 3，true &#x3D;&#x3D; 1 ，因此结果是true 第二个题："><meta property="og:image" content="http://suplyang.xyz/null"><meta property="article:published_time" content="2020-10-01T02:05:20.284Z"><meta property="article:modified_time" content="2020-10-01T03:04:18.478Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  hexoversion: '5.1.1',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime: '',
-  date_suffix: {"one_hour":"刚刚","hours":"小时前","day":"天前"},
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-};
+<!DOCTYPE html>
 
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-    },
+<html lang="zh-CN">
 
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
+<head>
+  
+  <title>2020 JS面试合集 (01) - 老头的博客</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
 
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="JavaScript基础 1.写出代码执行结果，并解释为什么    console.log(1 &lt; 2 &lt; 3);     console.log(3 &gt; 2 &gt; 1);  &#x2F;&#x2F; 答案与解析 true false 对于运算符&gt;、&lt;,一般的计算从左向右 第一个题：1 &lt; 2 等于 true, 然后true &lt; 3，true &#x3D;&#x3D; 1 ，因此结果是tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020 JS面试合集 (01)">
+<meta property="og:url" content="http://suplyang.xyz/2020/10/01/js/index.html">
+<meta property="og:site_name" content="老头的博客">
+<meta property="og:description" content="JavaScript基础 1.写出代码执行结果，并解释为什么    console.log(1 &lt; 2 &lt; 3);     console.log(3 &gt; 2 &gt; 1);  &#x2F;&#x2F; 答案与解析 true false 对于运算符&gt;、&lt;,一般的计算从左向右 第一个题：1 &lt; 2 等于 true, 然后true &lt; 3，true &#x3D;&#x3D; 1 ，因此结果是tru">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-01T02:05:20.284Z">
+<meta property="article:modified_time" content="2020-11-17T12:21:29.907Z">
+<meta property="article:author" content="Geezer">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
+  
+  <link rel="stylesheet" href="/css/style.css?v=1605617053488">
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="老头的博客" type="application/atom+xml">
+</head>
 
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isSidebar: true,
-  postUpdate: '2020-10-01 11:04:18'
-}</script><noscript><style type="text/css">
-#nav {
-  opacity: 1
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Geezer" class="mdui-btn mdui-btn-icon"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/doomfist-screenshot-002.jpg" alt="Geezer"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Geezer">
+            <img src="https://overwatch.nosdn.127.net/2/media/screenshots/doomfist-screenshot-002.jpg" alt="Geezer" alt="Geezer">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>6</div>
+        <div><span>标签</span>0</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/297521966" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/suply/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
 }
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-  }
-}
+</style>
 
-var autoChangeMode = 'false'
-var t = saveToLocal.get('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 Geezer
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+          <img data-src="https://overwatch.nosdn.127.net/2/media/artwork/genji.jpg" data-sizes="auto" alt="2020 JS面试合集 (01)" class="lazyload">
+          <h1>2020 JS面试合集 (01)</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月01日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.8k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 17 分钟</a>
+</div>
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (saveToLocal.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="老头的博客" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">6</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%99%E5%87%BA%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">1.写出代码执行结果，并解释为什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%86%99%E5%87%BA%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">2.写出代码执行的结果，并解释为什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%AD%BB%E5%BE%AA%E7%8E%AF%E9%99%B7%E9%98%B1"><span class="toc-number">3.</span> <span class="toc-text">3.死循环陷阱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%86%99%E5%87%BA%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">4.写出代码执行结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%80%97%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">5.逗号表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%86%99%E5%87%BA%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C"><span class="toc-number">6.</span> <span class="toc-text">6.写出打印结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">7.链式调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%BE%93%E5%87%BA%E4%BB%80%E4%B9%88"><span class="toc-number">8.</span> <span class="toc-text">8.输出什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%B8%80%E4%BA%9B%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">9.</span> <span class="toc-text">9.一些隐式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%86%99%E5%87%BA%E6%AD%A3%E7%A1%AE%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C"><span class="toc-number">10.</span> <span class="toc-text">10.写出正确打印结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%89%96%E6%9E%90%E4%BB%A3%E7%A0%81"><span class="toc-number">11.</span> <span class="toc-text">11.剖析代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E5%89%96%E6%9E%90%E4%BB%A3%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text">12.剖析代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD%E2%80%A6%E2%80%A6%E2%80%A6"><span class="toc-number">12.1.</span> <span class="toc-text">未完待续……….</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">老头的博客</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">2020 JS面试合集 (01)</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-01T02:05:20.284Z" title="发表于 2020-10-01 10:05:20">2020-10-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-01T03:04:18.478Z" title="更新于 2020-10-01 11:04:18">2020-10-01</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><strong>JavaScript基础</strong></p>
-<h2 id="1-写出代码执行结果，并解释为什么"><a href="#1-写出代码执行结果，并解释为什么" class="headerlink" title="1.写出代码执行结果，并解释为什么"></a>1.写出代码执行结果，并解释为什么</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <p><strong>JavaScript基础</strong></p>
+<h2 id="1-写出代码执行结果，并解释为什么"><a href="#1-写出代码执行结果，并解释为什么" class="headerlink" title="1.写出代码执行结果，并解释为什么"></a>1.写出代码执行结果，并解释为什么</h2><pre><code class="javascript">    console.log(1 &lt; 2 &lt; 3);
+    console.log(3 &gt; 2 &gt; 1);</code></pre>
 <ul>
 <li>// 答案与解析</li>
 <li>true false</li>
@@ -144,14 +170,33 @@ if (autoChangeMode === '1') {
 <li>1)JavaScript 中的值是由一个表示类型的标签和实际数据值表示的。对象的类型标签是 0。由于 null 代表的是空指针（大多数平台下值为</li>
 <li>0x00)因此，null的类型标签也成为了 0，typeof null就错误的返回了”object”。这算一个bug,但是被拒绝修复，因为影响的web系统太多  </li>
 <li>2）instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性</li>
-<li>null不是以Object原型创建，因此返回false<h2 id="3-死循环陷阱"><a href="#3-死循环陷阱" class="headerlink" title="3.死循环陷阱"></a>3.死循环陷阱</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> END = <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>);</span><br><span class="line"><span class="keyword">var</span> START = END - <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = START; i &lt;= END; i++) &#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(count);</span><br></pre></td></tr></table></figure></li>
+<li>null不是以Object原型创建，因此返回false<h2 id="3-死循环陷阱"><a href="#3-死循环陷阱" class="headerlink" title="3.死循环陷阱"></a>3.死循环陷阱</h2><pre><code class="javascript">var END = Math.pow(2, 53);
+var START = END - 100;
+var count = 0;
+for (var i = START; i &lt;= END; i++) &#123;
+  count++;
+&#125;
+console.log(count);</code></pre>
+</li>
 <li>// 写出正确的打印结果，并解释为什么？ </li>
 <li>// 答案与解析</li>
-<li>这个会陷入一个死循环，2^53是最大的值，因此2^53+1 等于 2^53<h2 id="4-写出代码执行结果"><a href="#4-写出代码执行结果" class="headerlink" title="4.写出代码执行结果"></a>4.写出代码执行结果</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">Date</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">[a === b, b === c, a === c];</span><br></pre></td></tr></table></figure></li>
+<li>这个会陷入一个死循环，2^53是最大的值，因此2^53+1 等于 2^53<h2 id="4-写出代码执行结果"><a href="#4-写出代码执行结果" class="headerlink" title="4.写出代码执行结果"></a>4.写出代码执行结果</h2><pre><code class="javascript">var a = Date(0);
+var b = new Date(0);
+var c = new Date();
+[a === b, b === c, a === c];</code></pre>
+</li>
 <li>// 答案与解析</li>
 <li>[false,false,false]</li>
 <li>需要注意的是只能通过调用 Date 构造函数来实例化日期对象：以常规函数调用它（即不加 new 操作符）将会返回一个字符串，而不是一个日期对象。另外，不像其他JavaScript 类型，Date 对象没有字面量格式。</li>
-<li>a是字符串，b和c是Date对象，并且b代表的是1970年那个初始化时间，而c代表的是当前时间。<h2 id="5-逗号表达式"><a href="#5-逗号表达式" class="headerlink" title="5.逗号表达式"></a>5.逗号表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> temp = &#123;</span><br><span class="line">    x: <span class="number">40</span>,</span><br><span class="line">    foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">      	<span class="built_in">console</span>.log(<span class="built_in">this</span>.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">(temp.foo, temp.foo)();</span><br></pre></td></tr></table></figure>
+<li>a是字符串，b和c是Date对象，并且b代表的是1970年那个初始化时间，而c代表的是当前时间。<h2 id="5-逗号表达式"><a href="#5-逗号表达式" class="headerlink" title="5.逗号表达式"></a>5.逗号表达式</h2><pre><code class="javascript">var x = 20;
+var temp = &#123;
+  x: 40,
+  foo: function() &#123;
+      var x = 10;
+        console.log(this.x);
+  &#125;
+&#125;;
+(temp.foo, temp.foo)();</code></pre>
 <h2 id="6-写出打印结果"><a href="#6-写出打印结果" class="headerlink" title="6.写出打印结果"></a>6.写出打印结果</h2></li>
 <li>20</li>
 <li>逗号操作符，逗号操作符会从左到右计算它的操作数，返回最后一个操作数的值。所以(temp.foo, temp.foo)();等价于var fun = temp.foo;fun();，fun调用时this指向window，所以返回20。<h2 id="7-链式调用"><a href="#7-链式调用" class="headerlink" title="7.链式调用"></a>7.链式调用</h2></li>
@@ -161,8 +206,18 @@ if (autoChangeMode === '1') {
 <li>答案：12</li>
 <li>arguments中c的值还是1不会变成10，</li>
 <li>因为a函数加了默认值，就按ES的方式解析，ES6是有块级作用域的，所以c的值是不会改变的</li>
-<li>*/<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.add = <span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> number !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;请输入数字～&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span> + number;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Number</span>.prototype.minus = <span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> number !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;请输入数字～&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span> - number;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">5</span>).add(<span class="number">3</span>).minus(<span class="number">2</span>));</span><br><span class="line"><span class="comment">/*********************************/</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;        </span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;            </span><br><span class="line">    a = <span class="number">2</span>;            </span><br><span class="line">    <span class="built_in">console</span>.log(a);        </span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// 答案</span></span><br><span class="line">ƒ a () &#123;            </span><br><span class="line">    a = <span class="number">2</span>;            </span><br><span class="line">    <span class="built_in">console</span>.log(a);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">立即调用的函数表达式（IIFE） 有一个 自己独立的 作用域，如果函数名称与内部变量名称冲突，就会永远执行函数本身；所以上面的结果输出是函数本身；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-输出什么"><a href="#8-输出什么" class="headerlink" title="8.输出什么"></a>8.输出什么</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">0</span>];</span><br><span class="line"><span class="keyword">if</span>(a)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a == <span class="literal">true</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>*/<br>```js<br>Number.prototype.add = function (number) {<br>  if (typeof number !== ‘number’) {<pre><code>  throw new Error(&#39;请输入数字～&#39;);</code></pre>
+  }<br>  return this + number;<br>};<br>Number.prototype.minus = function (number) {<br>  if (typeof number !== ‘number’) {<pre><code>  throw new Error(&#39;请输入数字～&#39;);</code></pre>
+  }<br>  return this - number;<br>};<br>console.log((5).add(3).minus(2));<br>/*<strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong>/<br>var a = 1;<br>(function a () {<br>  a = 2;<br>  console.log(a);<br>})();<br>// 答案<br>ƒ a () {<br>  a = 2;<br>  console.log(a);<br>}<br>/*<br>立即调用的函数表达式（IIFE） 有一个 自己独立的 作用域，如果函数名称与内部变量名称冲突，就会永远执行函数本身；所以上面的结果输出是函数本身；</li>
+<li>/<pre><code>## 8.输出什么
+```js
+var a = [0];
+if(a)&#123;
+   console.log(a == true);
+&#125;else&#123;
+   console.log(a);
+&#125;</code></pre>
+</li>
 <li>/*</li>
 <li>答案：false</li>
 <li>当a出现在if的条件中时，被转成布尔值，而Boolean([0])为true,所以就进行下一步判断 a == true,在进行比较时，[0]被转换成了0，所以0==true为false</li>
@@ -174,7 +229,20 @@ if (autoChangeMode === '1') {
 <li>‘1’ == true//true  Number(‘1’)-&gt;1</li>
 <li>对象与原始类型值比较，对象会转换成原始类型的值再进行比较。</li>
 <li>undefined和null与其它类型进行比较时，结果都为false，他们相互比较时结果为true。<h2 id="9-一些隐式转换"><a href="#9-一些隐式转换" class="headerlink" title="9.一些隐式转换"></a>9.一些隐式转换</h2></li>
-<li>数组从非primitive转为primitive的时候会先隐式调用join变成“0”，string和boolean比较的时候，两个都先转为number类型再比较，最后就是0==1的比较了<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span>(a)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a == <span class="literal">true</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">!![] <span class="comment">//true  空数组转换为布尔值是true,</span></span><br><span class="line">!![<span class="number">0</span>]<span class="comment">//true  数组转换为布尔值是true</span></span><br><span class="line">[<span class="number">0</span>] == <span class="literal">true</span>;<span class="comment">//false   数组与布尔值比较时却变成了false</span></span><br><span class="line"><span class="built_in">Number</span>([])<span class="comment">//0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>)<span class="comment">//0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="string">&#x27;1&#x27;</span>])<span class="comment">//1</span></span><br></pre></td></tr></table></figure></li>
+<li>数组从非primitive转为primitive的时候会先隐式调用join变成“0”，string和boolean比较的时候，两个都先转为number类型再比较，最后就是0==1的比较了<pre><code class="js">var a = [1];
+if(a)&#123;
+  console.log(a == true);
+&#125;else&#123;
+  console.log(a);
+&#125;
+// true
+!![] //true  空数组转换为布尔值是true,
+!![0]//true  数组转换为布尔值是true
+[0] == true;//false   数组与布尔值比较时却变成了false
+Number([])//0
+Number(false)//0
+Number([&#39;1&#39;])//1</code></pre>
+</li>
 <li>所以当a出现在if的条件中时，被转成布尔值，而Boolean([0])为true,所以就进行下一步判断 a == true,在进行比较时，js的规则是：</li>
 <li>如果比较的是原始类型的值，原始类型的值会转成数值再进行比较</li>
 <li>1 == true  //true   1 === Number(true)</li>
@@ -183,7 +251,13 @@ if (autoChangeMode === '1') {
 <li>‘1’ == true//true  Number(‘1’)-&gt;1</li>
 <li>对象与原始类型值比较，对象会转换成原始类型的值再进行比较。</li>
 <li>undefined和null与其它类型进行比较时，结果都为false，他们相互比较时结果为true。</li>
-<li>*/<h2 id="10-写出正确打印结果"><a href="#10-写出正确打印结果" class="headerlink" title="10.写出正确打印结果"></a>10.写出正确打印结果</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    c = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>],</span><br><span class="line">		d = <span class="string">&quot;2&quot;</span>,</span><br><span class="line">		e = <span class="string">&quot;11&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log([a == b, a === b, a &gt; c, a &lt; c, d &gt; e]);</span><br></pre></td></tr></table></figure></li>
+<li>*/<h2 id="10-写出正确打印结果"><a href="#10-写出正确打印结果" class="headerlink" title="10.写出正确打印结果"></a>10.写出正确打印结果</h2><pre><code class="js">const a = [1,2,3],
+  b = [1,2,3],
+  c = [1,2,4],
+      d = &quot;2&quot;,
+      e = &quot;11&quot;;
+console.log([a == b, a === b, a &gt; c, a &lt; c, d &gt; e]);</code></pre>
+</li>
 <li>// 答案</li>
 <li>[false,false,false,true,true] </li>
 <li>// 解析</li>
@@ -209,7 +283,17 @@ if (autoChangeMode === '1') {
 <li>如果对象具有toString()方法，javaScript会优先调用此方法。如果返回的是一个原始值（原始值包括null、undefined、布尔值、字符串、数字），javaScript会将这个原始值转换为字符串，并返回字符串作为结果。</li>
 <li>如果对象不具有toString()方法，或者调用toString()方法返回的不是原始值，则javaScript会判断是否存在valueOf()方法，如若存在则调用此方法，如果返回的是原始值，javaScript会将原始值转换为字符串作为结果。</li>
 <li>如果javaScript无法调用toString()和valueOf()返回原始值的时候，则会报一个类型错误异常的警告。</li>
-<li>比如：String([1,2,3]);将一个对象转换为字符串<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&quot;valueOf&quot;</span>);</span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">this</span></span><br><span class="line"> &#125;</span><br><span class="line">a.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;toString&#x27;</span>)</span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">this</span></span><br><span class="line"> &#125;	</span><br><span class="line"><span class="built_in">String</span>(a);</span><br></pre></td></tr></table></figure></li>
+<li>比如：String([1,2,3]);将一个对象转换为字符串<pre><code class="js">var a = [1,2,3];
+a.valueOf = function()&#123;
+console.log(&quot;valueOf&quot;);
+return this
+&#125;
+a.toString = function()&#123;
+console.log(&#39;toString&#39;)
+return this
+&#125;    
+String(a);</code></pre>
+</li>
 <li>因为这里我返回的是this，最后，所以如果javaScript无法调用toString()和valueOf()返回原始值的时候，则会报一个类型错误异常的警 告。 </li>
 <li>②javaScript中对象转换为数字的转换过程：</li>
 <li>javaScript优先判断对象是否具有valueOf()方法，如具有则调用，若返回一个原始值，javaScript会将原始值转换为数字并作为结果。</li>
@@ -217,40 +301,94 @@ if (autoChangeMode === '1') {
 <li>如果javaScript无法调用toString()和valueOf()返回原始值的时候，则会报一个类型错误异常的警告。</li>
 <li>比如：Number([1,2,3]);将一个对象转换为字符串 </li>
 </ul>
-<h2 id="11-剖析代码"><a href="#11-剖析代码" class="headerlink" title="11.剖析代码"></a>11.剖析代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = ?;</span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> &amp;&amp; a== <span class="number">2</span> &amp;&amp; a== <span class="number">3</span>)&#123;</span><br><span class="line"> 	<span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="11-剖析代码"><a href="#11-剖析代码" class="headerlink" title="11.剖析代码"></a>11.剖析代码</h2><pre><code class="js">var a = ?;
+if(a == 1 &amp;&amp; a== 2 &amp;&amp; a== 3)&#123;
+     console.log(1);
+&#125;</code></pre>
 <ul>
 <li>/*</li>
 <li>比较操作涉及多不同类型的值时候，会涉及到很多隐式转换，其中规则繁多即便是经验老道的程序员也没办法完全记住，特别是用到 ==和 !=运算时候。所以一些团队规定禁用 ==运算符换用===严格相等。</li>
 <li>*/</li>
-<li>// 答案一<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aﾠ = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> ﾠa = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">if</span>(aﾠ==<span class="number">1</span> &amp;&amp; a== <span class="number">2</span> &amp;&amp;ﾠa==<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>// 答案一<pre><code class="js">var aﾠ = 1;
+var a = 2;
+var ﾠa = 3;
+if(aﾠ==1 &amp;&amp; a== 2 &amp;&amp;ﾠa==3) &#123;
+  console.log(&quot;1&quot;)
+&#125;</code></pre>
+</li>
 <li>/*</li>
-<li>考察你的找茬能力，注意if里面的空格，它是一个Unicode空格字符，不被ECMA脚本解释为空格字符(这意味着它是标识符的有效字符)。所以它可以解释为<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a_ = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> _a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">if</span>(a_==<span class="number">1</span> &amp;&amp; a== <span class="number">2</span> &amp;&amp;_a==<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>考察你的找茬能力，注意if里面的空格，它是一个Unicode空格字符，不被ECMA脚本解释为空格字符(这意味着它是标识符的有效字符)。所以它可以解释为<pre><code class="js">var a_ = 1;
+var a = 2;
+var _a = 3;
+if(a_==1 &amp;&amp; a== 2 &amp;&amp;_a==3) &#123;
+console.log(&quot;1&quot;)
+&#125;</code></pre>
+</li>
 <li>/</li>
-<li>//答案二<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">  i: <span class="number">1</span>,</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.i++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>//答案二<pre><code class="js">var a = &#123;
+i: 1,
+toString: function () &#123;
+  return a.i++;
+&#125;
+&#125;
+if(a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3) &#123;
+console.log(&#39;1&#39;);
+&#125;</code></pre>
+</li>
 <li>/*</li>
 <li>如果原始类型的值和对象比较，对象会转为原始类型的值，再进行比较。</li>
 <li>对象转换成原始类型的值，算法是先调用valueOf方法；如果返回的还是对象，再接着调用toString方法。</li>
 <li>*/</li>
-<li>// 答案三<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.join = a.shift;</span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
+<li>// 答案三<pre><code class="js">var a = [1,2,3];
+a.join = a.shift;
+console.log(a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3);</code></pre>
+</li>
 <li>/*</li>
 <li>比较巧妙的方式，array也属于对象，</li>
 <li>对于数组对象，toString 方法返回一个字符串，该字符串由数组中的每个元素的 toString() 返回值经调用 join() 方法连接（由逗号隔* 开）组成。</li>
 <li>数组 toString 会调用本身的 join 方法，这里把自己的join方法该写为shift,每次返回第一个元素，而且原数组删除第一个值，正好可以使* 判断成立</li>
 <li>*/</li>
-<li>// 答案四<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">with</span>(&#123;</span><br><span class="line">  <span class="keyword">get</span> <span class="title">a</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> ++i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;) &#123;</span><br><span class="line">  <span class="keyword">if</span> (a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>// 答案四<pre><code class="js">var i = 0;
+with(&#123;
+get a() &#123;
+  return ++i;
+&#125;
+&#125;) &#123;
+if (a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3)
+  console.log(&quot;1&quot;);
+&#125;</code></pre>
+</li>
 <li>/*</li>
 <li>with 也是被严重建议不使用的对象，这里也是利用它的特性在代码块里面利用对象的 get 方法动态返回 i.</li>
 <li>*/</li>
-<li>// 答案五<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> val = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ++val;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">if</span> (a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>// 答案五<pre><code class="js">var val = 0;
+Object.defineProperty(window, &#39;a&#39;, &#123;
+get: function() &#123;
+  return ++val;
+&#125;
+&#125;);
+if (a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3) &#123;
+console.log(&#39;1&#39;);
+&#125;</code></pre>
+</li>
 <li>/*</li>
 <li>全局变量也相当于 window 对象上的一个属性，这里用defineProperty 定义了 a的 get 也使得其动态返回值。和with 有一些类似。</li>
 <li>*/</li>
-<li>// 答案六<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;[<span class="built_in">Symbol</span>.toPrimitive]: (<span class="function">(<span class="params">i</span>) =&gt;</span> <span class="function">() =&gt;</span> ++i) (<span class="number">0</span>)&#125;;</span><br><span class="line"><span class="keyword">if</span> (a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>// 答案六<pre><code class="js">let a = &#123;[Symbol.toPrimitive]: ((i) =&gt; () =&gt; ++i) (0)&#125;;
+if (a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3) &#123;
+console.log(&#39;1&#39;);
+&#125;</code></pre>
+</li>
 <li>/*</li>
 <li>ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。我们之前在定义类的内部私有属性时候习惯用 __xxx ,这种命名方式避免别人* 定义相同的属性名覆盖原来的属性，有了 Symbol  之后我们完全可以用 Symbol值来代替这种方法，而且完全不用担心被覆盖。</li>
 <li>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。Symbol.toPrimitive就是其中一* 个，它指向一个方法，表示该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。这里就是改变这个属性，把它的值* 改为一个 闭包 返回的函数。</li>
 <li>*/</li>
-<li>业务中一般不会写出这种代码,重点还是知识点的考察<h2 id="12-剖析代码"><a href="#12-剖析代码" class="headerlink" title="12.剖析代码"></a>12.剖析代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">n</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(a.x) 	</span><br><span class="line"><span class="built_in">console</span>.log(b.x)</span><br></pre></td></tr></table></figure></li>
+<li>业务中一般不会写出这种代码,重点还是知识点的考察<h2 id="12-剖析代码"><a href="#12-剖析代码" class="headerlink" title="12.剖析代码"></a>12.剖析代码</h2><pre><code class="js">let a = &#123;n: 1&#125;;
+let b = a;
+a.x = a = &#123;n: 2&#125;;
+console.log(a.x)     
+console.log(b.x)</code></pre>
+</li>
 <li>答案：</li>
 <li>undefined {n:2}</li>
 <li>注意点： </li>
@@ -291,4 +429,62 @@ if (autoChangeMode === '1') {
 <li>x: { n: 2 }</li>
 <li>}<h3 id="未完待续………"><a href="#未完待续………" class="headerlink" title="未完待续………."></a>未完待续……….</h3></li>
 </ul>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Geezer</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://suplyang.xyz/2020/10/01/js/">http://suplyang.xyz/2020/10/01/js/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://suplyang.xyz" target="_blank">老头的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/null" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/01/js02/"><img class="prev-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2020 JS面试合集 (02)</div></div></a></div><div class="next-post pull-right"><a href="/2020/09/17/chrome/"><img class="next-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Chrome插件,被严重低估的浏览器功能！！</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Geezer</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>Geezer<br>
+    <strong>本文链接：</strong><a href="http://suplyang.xyz/2020/10/01/js/" title="http:&#x2F;&#x2F;suplyang.xyz&#x2F;2020&#x2F;10&#x2F;01&#x2F;js&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;suplyang.xyz&#x2F;2020&#x2F;10&#x2F;01&#x2F;js&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: '2v0GdI5793s8MinHlTql3uAA-gzGzoHsz',
+        appKey: 'ludHv3YSyuw82oHR83UuFryt'
+    })
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+ <script src="/js/app.js?v=1605617053489"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

@@ -1,125 +1,169 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2020 JS面试合集 (02) | 老头的博客</title><meta name="description" content="13.实现一个模板引擎1234567891011121314151617181920let template &#x3D; &amp;#x27;我是&amp;#123;&amp;#123;name&amp;#125;&amp;#125;，年龄&amp;#123;&amp;#123;age&amp;#125;&amp;#125;，性别&amp;#123;&amp;#123;sex&amp;#125;&amp;#125;&amp;#x27;;let data &#x3D; &amp;#123;  name: &amp;#x27;姓名&amp;#x27;,"><meta name="author" content="Geezer"><meta name="copyright" content="Geezer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://suplyang.xyz/2020/10/01/js02/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="2020 JS面试合集 (02)"><meta property="og:url" content="http://suplyang.xyz/2020/10/01/js02/"><meta property="og:site_name" content="老头的博客"><meta property="og:description" content="13.实现一个模板引擎1234567891011121314151617181920let template &#x3D; &amp;#x27;我是&amp;#123;&amp;#123;name&amp;#125;&amp;#125;，年龄&amp;#123;&amp;#123;age&amp;#125;&amp;#125;，性别&amp;#123;&amp;#123;sex&amp;#125;&amp;#125;&amp;#x27;;let data &#x3D; &amp;#123;  name: &amp;#x27;姓名&amp;#x27;,"><meta property="og:image" content="http://suplyang.xyz/null"><meta property="article:published_time" content="2020-10-01T03:02:10.186Z"><meta property="article:modified_time" content="2020-10-01T03:04:13.492Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  hexoversion: '5.1.1',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime: '',
-  date_suffix: {"one_hour":"刚刚","hours":"小时前","day":"天前"},
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-};
+<!DOCTYPE html>
 
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-    },
+<html lang="zh-CN">
 
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
+<head>
+  
+  <title>2020 JS面试合集 (02) - 老头的博客</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
 
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="13.实现一个模板引擎let template &#x3D; &#39;我是&amp;#123;&amp;#123;name&amp;#125;&amp;#125;，年龄&amp;#123;&amp;#123;age&amp;#125;&amp;#125;，性别&amp;#123;&amp;#123;sex&amp;#125;&amp;#125;&#39;; let data &#x3D; &amp;#123;   name: &#39;姓名&#39;,   age: 18 &amp;#125; render(template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020 JS面试合集 (02)">
+<meta property="og:url" content="http://suplyang.xyz/2020/10/01/js02/index.html">
+<meta property="og:site_name" content="老头的博客">
+<meta property="og:description" content="13.实现一个模板引擎let template &#x3D; &#39;我是&amp;#123;&amp;#123;name&amp;#125;&amp;#125;，年龄&amp;#123;&amp;#123;age&amp;#125;&amp;#125;，性别&amp;#123;&amp;#123;sex&amp;#125;&amp;#125;&#39;; let data &#x3D; &amp;#123;   name: &#39;姓名&#39;,   age: 18 &amp;#125; render(template">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-01T03:02:10.186Z">
+<meta property="article:modified_time" content="2020-11-17T12:21:12.563Z">
+<meta property="article:author" content="Geezer">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
+  
+  <link rel="stylesheet" href="/css/style.css?v=1605617053487">
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="老头的博客" type="application/atom+xml">
+</head>
 
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isSidebar: true,
-  postUpdate: '2020-10-01 11:04:13'
-}</script><noscript><style type="text/css">
-#nav {
-  opacity: 1
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Geezer" class="mdui-btn mdui-btn-icon"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/doomfist-screenshot-002.jpg" alt="Geezer"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Geezer">
+            <img src="https://overwatch.nosdn.127.net/2/media/screenshots/doomfist-screenshot-002.jpg" alt="Geezer" alt="Geezer">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>6</div>
+        <div><span>标签</span>0</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/297521966" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/suply/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
 }
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-  }
-}
+</style>
 
-var autoChangeMode = 'false'
-var t = saveToLocal.get('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 Geezer
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+          <img data-src="https://overwatch.nosdn.127.net/2/media/artwork/dva.jpg" data-sizes="auto" alt="2020 JS面试合集 (02)" class="lazyload">
+          <h1>2020 JS面试合集 (02)</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月01日</a>
+    <a><i class="nexmoefont icon-areachart"></i>485 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (saveToLocal.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="老头的博客" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">6</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text">13.实现一个模板引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1-wrapper-object-%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">14.什么是包装对象(wrapper object)？</span></a></li></ol></div></div></div><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">老头的博客</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">2020 JS面试合集 (02)</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-01T03:02:10.186Z" title="发表于 2020-10-01 11:02:10">2020-10-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-01T03:04:13.492Z" title="更新于 2020-10-01 11:04:13">2020-10-01</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="13-实现一个模板引擎"><a href="#13-实现一个模板引擎" class="headerlink" title="13.实现一个模板引擎"></a>13.实现一个模板引擎</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> template = <span class="string">&#x27;我是&#123;&#123;name&#125;&#125;，年龄&#123;&#123;age&#125;&#125;，性别&#123;&#123;sex&#125;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">  name: <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line">render(template, data); <span class="comment">// 我是姓名，年龄18，性别undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">template,data</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// your code</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 补充代码，使代码可以正确执行</span></span><br><span class="line"><span class="comment">// 代码实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">template, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> reg = <span class="regexp">/\&#123;\&#123;(\w+)\&#125;\&#125;/</span>; <span class="comment">// 模板字符串正则</span></span><br><span class="line">  <span class="keyword">if</span> (reg.test(template)) &#123; <span class="comment">// 判断模板里是否有模板字符串</span></span><br><span class="line">    <span class="keyword">const</span> name = reg.exec(template)[<span class="number">1</span>]; <span class="comment">// 查找当前模板里第一个模板字符串的字段</span></span><br><span class="line">    template = template.replace(reg, data[name]); <span class="comment">// 将第一个模板字符串渲染</span></span><br><span class="line">    <span class="keyword">return</span> render(template, data); <span class="comment">// 递归的渲染并返回渲染后的结构</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> template; <span class="comment">// 如果模板没有模板字符串直接返回</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <h2 id="13-实现一个模板引擎"><a href="#13-实现一个模板引擎" class="headerlink" title="13.实现一个模板引擎"></a>13.实现一个模板引擎</h2><pre><code class="js">let template = &#39;我是&#123;&#123;name&#125;&#125;，年龄&#123;&#123;age&#125;&#125;，性别&#123;&#123;sex&#125;&#125;&#39;;
+let data = &#123;
+  name: &#39;姓名&#39;,
+  age: 18
+&#125;
+render(template, data); // 我是姓名，年龄18，性别undefined
+function render(template,data)&#123;
+  // your code
+&#125;
+// 补充代码，使代码可以正确执行
+// 代码实现
+function render(template, data) &#123;
+  const reg = /\&#123;\&#123;(\w+)\&#125;\&#125;/; // 模板字符串正则
+  if (reg.test(template)) &#123; // 判断模板里是否有模板字符串
+    const name = reg.exec(template)[1]; // 查找当前模板里第一个模板字符串的字段
+    template = template.replace(reg, data[name]); // 将第一个模板字符串渲染
+    return render(template, data); // 递归的渲染并返回渲染后的结构
+  &#125;
+  return template; // 如果模板没有模板字符串直接返回
+&#125;</code></pre>
 <h2 id="14-什么是包装对象-wrapper-object-？"><a href="#14-什么是包装对象-wrapper-object-？" class="headerlink" title="14.什么是包装对象(wrapper object)？"></a>14.什么是包装对象(wrapper object)？</h2><ul>
 <li>// 答案</li>
 <li>1）复习一下JS的数据类型，JS数据类型被分为两大类，基本类型和引用类型</li>
@@ -134,4 +178,62 @@ if (autoChangeMode === '1') {
 <li>console.log(new String(name).toUpperCase()); // “MARKO”</li>
 <li>在完成访问属性或调用方法之后，新创建的对象将立即被丢弃。</li>
 </ul>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Geezer</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://suplyang.xyz/2020/10/01/js02/">http://suplyang.xyz/2020/10/01/js02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://suplyang.xyz" target="_blank">老头的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/null" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/31/html/"><img class="prev-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HTML详解(面试篇)</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/01/js/"><img class="next-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2020 JS面试合集 (01)</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Geezer</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>Geezer<br>
+    <strong>本文链接：</strong><a href="http://suplyang.xyz/2020/10/01/js02/" title="http:&#x2F;&#x2F;suplyang.xyz&#x2F;2020&#x2F;10&#x2F;01&#x2F;js02&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;suplyang.xyz&#x2F;2020&#x2F;10&#x2F;01&#x2F;js02&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: '2v0GdI5793s8MinHlTql3uAA-gzGzoHsz',
+        appKey: 'ludHv3YSyuw82oHR83UuFryt'
+    })
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+ <script src="/js/app.js?v=1605617053487"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
